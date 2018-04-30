@@ -1,4 +1,4 @@
-# Install GCE client tools
+# Install GCE client tools and Kubectl
 
 ## Install the Google 'gcloud' SDK
 
@@ -7,7 +7,7 @@ Then, set the Google Cloud project that you want to use for this lab as the defa
 
 ```
 gcloud config set project <your-project-id>
-gcloud config set compute/zone us-central1-f
+gcloud config set compute/zone us-central1-b
 gcloud config set compute/region us-central1
 ```
 
@@ -17,6 +17,12 @@ instructions [here](https://cloud.google.com/compute/docs/signup).
 Grab the service account docs from here:
 
 [Google Service Account Docs](https://developers.google.com/console/help/new/#serviceaccounts)
+
+## Install Kubectl
+
+
+Install Kubernetes command line tool on your respective machine(https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-kubectl)
+
 
 ## Verify your account is setup correctly
 

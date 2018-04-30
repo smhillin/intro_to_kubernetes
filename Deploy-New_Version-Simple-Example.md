@@ -1,7 +1,7 @@
-#Deploy-New_Version-Simple-Example
+# Deploy-New_Version-Simple-Example
 
 
-##Create Rolling Update for v2 of Hello World
+## Create Rolling Update for v2 of Hello World
 
 Kubernetes Engine's rolling update mechanism ensures that your application remains up and available even as the system replaces instances of your old container image with your new one across all the running replicas.
 

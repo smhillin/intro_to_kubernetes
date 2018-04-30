@@ -9,7 +9,7 @@ In this labs you will use cfssl to generate client and server TLS certs.
 
 
 
-###Generate Server and Client Certs
+## Generate Server and Client Certs
 
 SSL Certificates(https://cloud.google.com/compute/docs/load-balancing/http/ssl-certificates)
 
