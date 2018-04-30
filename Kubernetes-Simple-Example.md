@@ -1,8 +1,8 @@
-#Kubernetes Simple App Deploymens
+# Kubernetes Simple App Deploymens
 
 
 
-##Install Docker CE and GIT on your work station
+## Install Docker CE and GIT on your work station
 
 ```
 choose instructions for respective machine(https://docs.docker.com/install/)
@@ -13,7 +13,7 @@ choose instructions for respective machine(https://git-scm.com/downloads)
 ```
 
 
-##Build the container image
+## Build the container image
 
 
 For this tutorial, you will deploy a sample web application called hello-app, a web server written in Go that responds to all requests with the message “Hello, World!” on port 80.
@@ -45,12 +45,12 @@ View your local docker images.
 ```
 	docker images
 ```
-##Upload the container image
+## Upload the container image
 
 ```
 	gcloud docker -- push gcr.io/${PROJECT_ID}/hello-app:v1
 ```
-##Test the container image locally
+## Test the container image locally
 
 ```
 	docker run --rm -p 8080:8080 gcr.io/${PROJECT_ID}/hello-app:v1
@@ -59,7 +59,7 @@ View your local docker images.
 ```
 
 
-##Create a container cluster
+## Create a container cluster
 
 Now that the container image is stored in a registry, you need to create a container cluster to run the container image. A cluster consists of a pool of Compute Engine VM instances running Kubernetes, the open source cluster orchestration system that powers Kubernetes Engine.
 
@@ -83,7 +83,7 @@ It may take a few minutes to spin up your cluster.  Wait a bit and then view You
 You should see your 3 nodes running
 
 
-###Deploy your application
+## Deploy your application
 
 To deploy and manage applications on a Kubernetes Engine cluster, you must communicate with the Kubernetes cluster management system. You typically do this by using the kubectl command-line tool.
 
@@ -100,7 +100,7 @@ To see the pods created
 	kubectl get pods
 ```
 
-###Expose your application to the internet
+## Expose your application to the internet
 
 ```
 	kubectl expose deployment hello-web --type=LoadBalancer --port 80 --target-port 8080
