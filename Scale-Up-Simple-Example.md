@@ -1,4 +1,4 @@
-# Scale-Up-Simple-Example
+# Scale-Up-Simple-App
 
 You add more replicas to your application's Deployment resource by using the kubectl scale command. To add two additional replicas to your Deployment (for a total of three), run the following command:
 ```
