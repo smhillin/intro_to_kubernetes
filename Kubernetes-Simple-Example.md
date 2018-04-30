@@ -113,7 +113,7 @@ To see the pod created
 View the details of your running services
 
 ```
-kubectl describe services
+	kubectl describe services
 ```
 
 Find the LoadBalancer Ingress and put the address in your browser to see your live application.
