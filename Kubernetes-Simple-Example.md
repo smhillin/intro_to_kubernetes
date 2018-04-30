@@ -1,4 +1,4 @@
-# Kubernetes Simple App Deploymens
+# Kubernetes Simple App Deployment
 
 
 
@@ -91,10 +91,11 @@ The kubectl run command below causes Kubernetes to create a Deployment named hel
 
 ```
 	export PROJECT_ID="$(gcloud config get-value project -q)"
+
 	kubectl run hello-web --image=gcr.io/${PROJECT_ID}/hello-app:v1 --port 8080
 ```
 
-To see the pods created
+To see the pod created
 
 ```
 	kubectl get pods
@@ -107,4 +108,13 @@ To see the pods created
 ```
 
 
+## View live your application
+
+View the details of your running services
+
+```
+kubectl describe services
+```
+
+Find the LoadBalancer Ingress and put the address in your browser to see your live application.
 
