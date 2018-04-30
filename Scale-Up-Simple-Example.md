@@ -14,3 +14,36 @@ You can see the new replicas running
 ```
 Now, you have multiple instances of your application running independently of each other and you can use the kubectl scale command to adjust capacity of your application.
 
+
+# Cleanup
+
+First check to see your deployments are showing
+
+```
+	kubectl get deployments
+```
+
+Delete deployments.  This delete automatically propogates to any under lying pods oand replicasets.
+```
+	kubectl delete deployment/hello-web
+
+```
+Check to make sure deployments are deleted
+
+```
+	kubectl get deployments
+```
+
+Check to make sure deployments propogated to pods.
+
+
+```
+	kubectl get pods
+```
+
+
+Check to verify your 3 k8 nodes are running.
+
+```
+	kubectl get pods
+```
