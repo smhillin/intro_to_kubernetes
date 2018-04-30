@@ -1,7 +1,7 @@
-#Creating Volumes
+# Creating Volumes
 
 
-###Create new pod with shared volume
+### Create new pod with shared volume
 
 
 
@@ -38,7 +38,7 @@ Mount the Volume and see if you can read from the shared volume
 ```
 
 
-###Cleanup
+### Cleanup
 
 ```
 
