@@ -1,5 +1,7 @@
-#Create-Persistent-Volume
+# Create-Persistent-Volume
 
+
+## Create cluster and clone repo
 
 Create a 3 Node Kubernetes Cluster
 
@@ -17,7 +19,7 @@ git clone https://github.com/GoogleCloudPlatform/kubernetes-engine-samples
 cd kubernetes-engine-samples/wordpress-persistent-disks
 
 
-## Step 2: Create your PersistentVolumes and PersistentVolumeClaims
+## Create your PersistentVolumes and PersistentVolumeClaims
 
 
 Create a mysql-volumeclaim.yaml manifest with the following information
@@ -181,6 +183,8 @@ Check to see if service was created
 ```
 kubectl get service mysql
 ```
+
+## Deploy Wordpress
 
 Create the wordpress.yaml manifest
 
