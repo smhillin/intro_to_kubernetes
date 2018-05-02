@@ -360,7 +360,7 @@ Delete the cluster
 
 
 ```
-gcloud container clusters delete persistent-disk-tutorial
+gcloud container clusters delete persistent-volume-lab
 ```
 
 
