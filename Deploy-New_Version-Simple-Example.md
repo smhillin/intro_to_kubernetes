@@ -14,6 +14,13 @@ You can create an image for the v2 version of your application by building the s
 	docker build -t gcr.io/${PROJECT_ID}/hello-app:v2 .
 ```
 
+Push Image
+
+```
+gcloud docker -- push gcr.io/${PROJECT_ID}/hello-app:v2
+```
+
+
 ## Apply Rolling Update
 
 Now, apply a rolling update to the existing deployment with an image update:
