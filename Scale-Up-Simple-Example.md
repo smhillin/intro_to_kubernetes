@@ -15,7 +15,7 @@ You can see the new replicas running
 Now, you have multiple instances of your application running independently of each other and you can use the kubectl scale command to adjust capacity of your application.
 
 
-# Cleanup
+# Cleanup(Only if this is your last lab)
 
 First check to see your deployments are showing
 
