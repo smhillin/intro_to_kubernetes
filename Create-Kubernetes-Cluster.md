@@ -7,7 +7,7 @@
 	gcloud components install kubectl
 
 
-	gcloud container clusters create test‐cluster
+	gcloud container clusters create testcluster
 ```
 
 You may get an error message that you need to enable kubernetes API.  Paste link into your browser and enable API.
@@ -23,7 +23,7 @@ View your clusters
 Delete your Clusters
 
 ```
-	gcloud container clusters delete test-cluster
+	gcloud container clusters delete testcluster
 
 
 ```
