@@ -89,7 +89,9 @@ If you don't have the informaiton you can run the follwoing code on the master
 kubeadm  token create --print-join-command
 `
 
-### Test:  Return to master node and run the below command to see if worker nodes have joined cluster 
+### Test
+
+Return to master node and run the below command to see if worker nodes have joined cluster 
 
 `
 kubectl get nodes
