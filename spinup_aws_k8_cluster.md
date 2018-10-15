@@ -20,20 +20,22 @@ sudo sysctl net.bridge.bridge-nf-call-iptables=1
 
 ### Step 3: initialize kubeadm (done only for master)
 
-After running the command below you should recieve a succes message 
+`
+kubeadm init --pod-network-cidr=10.244.0.0/16
+`
+
+After running the command above you should recieve a succes message 
 
 "Your Kubernetes master has initialized successfully!"
 
-You will also see code with the format below
+You will also see snippet code with the format below
 
 "sudo kubeadm join --token <token> <IP>:6443 --discovery-token-ca-cert-hash
 <hash>"
 
 Copy this code you will need it later to add worker nodes to the cluster.
 
-`
-kubeadm init --pod-network-cidr=10.244.0.0/16
-`
+
 
 ### Step 4: create kubeconfig so the user can run kubectl commands
 
@@ -60,6 +62,8 @@ kubectl taint nodes --all node-role.kubernetes.io/master-
 kubectl get pods --all-namespaces
 
 ## Worker Nodes
+
+Run the commands below on all the worker nodes.
 
 ### Step 1: Sign in as Root
 
