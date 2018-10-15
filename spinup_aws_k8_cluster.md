@@ -1,24 +1,60 @@
 
 
+## Install Kubernetes and Docker on All Nodes(Skip if already Installed)
 
+
+### Update and upgrade the apt-get package manager
+'
+sudo apt-get update && sudo apt-get upgrade && sudo apt-get install -y apt-transport-https
+'
+
+### Install docker
 
 `
-## Master Node
+sudo apt install docker.io
+`
+
+### Start and enable docker engine
+`
+sudo systemctl start docker
+sudo systemctl enable docker
+`
+
+### Download and add the key to Kubernetes install
+
+`
+sudo curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add
+`
+
+### Add the package to apt-get
+
+`
+echo "deb http://apt.kubernetes.io/ kubernetes-xenial main" >> /etc/apt/sources.list.d/kubernetes.list
+`
+
+### Apt-get update and install Kubernetes
+
+`
+sudo apt-get update && sudo apt-get install -y kubelet kubeadm kubectl kubernetes-cni
+`
 
 
-### Step 1: sign as root
+## Master Node Initialization
+
+
+### Sign as root
 
 `
 sudo su -
 `
 
-### Step 2: pass bridged IPv4 traffic to iptables` chains which is required by certain CNI networks
+### Pass bridged IPv4 traffic to iptables` chains which is required by certain CNI networks
 
 `
 sudo sysctl net.bridge.bridge-nf-call-iptables=1
 `
 
-### Step 3: initialize kubeadm (done only for master)
+### Initialize kubeadm (done only for master)
 
 `
 kubeadm init --pod-network-cidr=10.244.0.0/16
@@ -37,7 +73,7 @@ Copy this code you will need it later to add worker nodes to the cluster.
 
 
 
-### Step 4: create kubeconfig so the user can run kubectl commands
+### Create kubeconfig so the user can run kubectl commands
 
 `
 mkdir -p $HOME/.kube
@@ -45,12 +81,12 @@ sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
 `
 
-### Step 5: install flannel networking
+### Install flannel networking
 `
 kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/v0.9.1/Documentation/kube-flannel.yml
 `
 
-### Step 6: Only when you want to use master node to host pods 
+### Only when you want to use master node to host pods 
 
 `
 kubectl taint nodes --all node-role.kubernetes.io/master-
@@ -62,23 +98,23 @@ kubectl taint nodes --all node-role.kubernetes.io/master-
 kubectl get pods --all-namespaces
 `
 
-## Worker Nodes
+## Worker Node Initialization
 
 Run the commands below on all the worker nodes.
 
-### Step 1: Sign in as Root
+### Sign in as Root
 
 `
 sudo su
 `
 
-### Step 2: pass bridged IPv4 traffic to iptables` chains which is required by certain CNI networks
+### Pass bridged IPv4 traffic to iptables` chains which is required by certain CNI networks
 
 `
 sudo sysctl net.bridge.bridge-nf-call-iptables=1
 `
 
-### Step 3: Get the token that you copied from step 3 above and run in the new node
+### Get the token that you copied from step 3 above and run in the new node
 
 "sudo kubeadm join --token <token> <IP>:6443 --discovery-token-ca-cert-hash
 <hash>"
