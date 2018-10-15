@@ -60,6 +60,7 @@ kubectl taint nodes --all node-role.kubernetes.io/master-
 
 `
 kubectl get pods --all-namespaces
+`
 
 ## Worker Nodes
 
@@ -67,7 +68,9 @@ Run the commands below on all the worker nodes.
 
 ### Step 1: Sign in as Root
 
+`
 sudo su
+`
 
 ### Step 2: pass bridged IPv4 traffic to iptables` chains which is required by certain CNI networks
 
