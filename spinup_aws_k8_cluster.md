@@ -4,9 +4,10 @@
 
 
 ### Update and upgrade the apt-get package manager
+
 `
 sudo apt-get update && sudo apt-get upgrade && sudo apt-get install -y apt-transport-https
-
+`
 
 ### Install Docker
 
