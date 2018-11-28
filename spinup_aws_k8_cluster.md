@@ -2,29 +2,32 @@
 
 ## Install Kubernetes and Docker on All Nodes(Skip if already Installed)
 
+`
+sudo su
+`
 
 ### Update and upgrade the apt-get package manager
 
 `
-sudo apt-get update && sudo apt-get upgrade && sudo apt-get install -y apt-transport-https
+apt-get update && sudo apt-get upgrade && sudo apt-get install -y apt-transport-https
 `
 
 ### Install Docker
 
 `
-sudo apt-get install docker-ce=18.03.1~ce~3-0~ubuntu
+apt-get install docker-ce=18.03.1~ce~3-0~ubuntu
 `
 
 ### Start and enable docker engine
 `
-sudo systemctl start docker
-sudo systemctl enable docker
+systemctl start docker
+systemctl enable docker
 `
 
 ### Download and add the key to Kubernetes install
 
 `
-sudo curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add
+curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add
 `
 
 ### Add the package to apt-get
@@ -36,7 +39,7 @@ echo "deb http://apt.kubernetes.io/ kubernetes-xenial main" >> /etc/apt/sources.
 ### Apt-get update and install Kubernetes
 
 `
-sudo apt-get update && sudo apt-get install -y kubelet kubeadm kubectl kubernetes-cni
+apt-get update && sudo apt-get install -y kubelet kubeadm kubectl kubernetes-cni
 `
 
 
