@@ -6,12 +6,12 @@
 ### Update and upgrade the apt-get package manager
 `
 sudo apt-get update && sudo apt-get upgrade && sudo apt-get install -y apt-transport-https
-`
 
-### Install docker(latest version)
+
+### Install Docker
 
 `
-sudo apt install docker.io
+sudo apt-get install docker-ce=18.03.1~ce~3-0~ubuntu
 `
 
 ### Start and enable docker engine
