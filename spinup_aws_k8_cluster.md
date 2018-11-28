@@ -1,15 +1,48 @@
 
 
-## Install Kubernetes and Docker on All Nodes(Skip if already Installed)
+## Install Kubernetes and Docker on All Nodes
 
 `
 sudo su
+`
+
+### Check for current instalation of Docker
+
+`
+Docker version
+`
+
+### Uninstall Current Version(if installed)
+
+`
+sudo apt-get remove docker docker-engine docker.io
 `
 
 ### Update and upgrade the apt-get package manager
 
 `
 apt-get update && sudo apt-get upgrade && sudo apt-get install -y apt-transport-https
+`
+
+### Add Docker Secure Key
+
+`
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+`
+
+### Add Docker Repo
+
+`
+sudo add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable"
+`
+
+### Check for version 18.03.1 (this is the latest version that will work with kubeadmin)
+
+`
+apt-cache madison docker-ce
 `
 
 ### Install Docker
