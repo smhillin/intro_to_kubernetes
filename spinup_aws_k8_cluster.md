@@ -24,13 +24,13 @@ sudo apt-get remove docker docker-engine docker.io
 apt-get update && sudo apt-get upgrade && sudo apt-get install -y apt-transport-https
 `
 
-### Add Docker Secure Key
+### Check for available versions in Docker repo
 
 `
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+apt-cache madison docker-ce
 `
 
-### Add Docker Repo
+### If no versions available Add Docker Repo
 
 `
 sudo add-apt-repository \
@@ -44,6 +44,13 @@ sudo add-apt-repository \
 `
 apt-cache madison docker-ce
 `
+
+### Add Docker Secure Key
+
+`
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+`
+
 
 ### Install Docker
 
