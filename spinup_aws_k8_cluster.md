@@ -51,7 +51,7 @@ sudo su -
 ### Pass bridged IPv4 traffic to iptables` chains which is required by certain CNI networks
 
 `
-sudo sysctl net.bridge.bridge-nf-call-iptables=1
+sysctl net.bridge.bridge-nf-call-iptables=1
 `
 
 ### Initialize kubeadm (done only for master)
