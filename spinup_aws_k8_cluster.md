@@ -78,9 +78,11 @@ Copy this code you will need it later to add worker nodes to the cluster.
 `
 mkdir -p $HOME/.kube
 `
+
 `
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 `
+
 `
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
 `
