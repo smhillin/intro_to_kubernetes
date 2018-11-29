@@ -1,4 +1,4 @@
-
+This lab should be run on Ubuntu 16.04.
 
 ## Install Kubernetes and Docker on All Nodes
 
@@ -30,13 +30,23 @@ apt-get update && sudo apt-get upgrade && sudo apt-get install -y apt-transport-
 apt-cache madison docker-ce
 `
 
-### If no versions available Add Docker Repo
+### Add Docker Secure Key
 
 `
-sudo add-apt-repository \
-   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-   $(lsb_release -cs) \
-   stable"
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+`
+
+
+### If no previous versions of docker available Add Docker Repo
+
+`
+add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+`
+
+### Update Package Manager
+
+`
+apt-get update
 `
 
 ### Check for version 18.03.1 (this is the latest version that will work with kubeadmin)
@@ -45,17 +55,10 @@ sudo add-apt-repository \
 apt-cache madison docker-ce
 `
 
-### Add Docker Secure Key
-
-`
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-`
-
-
 ### Install Docker
 
 `
-apt-get install docker-ce=18.03.1~ce~3-0~ubuntu
+apt-get install docker-ce=18.03.1~ce-0~ubuntu
 `
 
 ### Start and enable docker engine
@@ -124,14 +127,14 @@ mkdir -p $HOME/.kube
 `
 
 `
-sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 `
 
 `
-sudo chown $(id -u):$(id -g) $HOME/.kube/config
+chown $(id -u):$(id -g) $HOME/.kube/config
 `
 
-### Install flannel networking
+### Install flannel networking to allow linux nodes to communicate
 `
 kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/v0.9.1/Documentation/kube-flannel.yml
 `
@@ -150,7 +153,7 @@ kubectl get pods --all-namespaces
 
 ## Worker Node Initialization
 
-Run the commands below on all the worker nodes.
+Run the commands below on all the worker nodes after installing Docker and Kubernetes.
 
 ### Sign in as Root
 
