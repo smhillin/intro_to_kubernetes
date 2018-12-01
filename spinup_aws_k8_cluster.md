@@ -21,7 +21,7 @@ sudo apt-get remove docker docker-engine docker.io
 ### Update and upgrade the apt-get package manager
 
 `
-apt-get update && sudo apt-get upgrade && sudo apt-get install -y apt-transport-https
+apt-get update && apt-get upgrade && sudo apt-get install -y apt-transport-https
 `
 
 ### Check for available versions in Docker repo
@@ -82,7 +82,7 @@ echo "deb http://apt.kubernetes.io/ kubernetes-xenial main" >> /etc/apt/sources.
 ### Apt-get update and install Kubernetes
 
 `
-apt-get update && sudo apt-get install -y kubelet kubeadm kubectl kubernetes-cni
+apt-get update && apt-get install -y kubelet kubeadm kubectl kubernetes-cni
 `
 
 
