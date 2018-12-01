@@ -1,6 +1,6 @@
 This lab should be run on Ubuntu 16.04.
 
-## Install Kubernetes and Docker on All Nodes
+# Install Kubernetes and Docker on All Nodes
 
 `
 sudo su
@@ -95,11 +95,6 @@ apt-get update && apt-get install -y kubelet kubeadm kubectl kubernetes-cni
 sudo su -
 `
 
-### Pass bridged IPv4 traffic to iptables` chains which is required by certain CNI networks
-
-`
-sysctl net.bridge.bridge-nf-call-iptables=1
-`
 
 ### Initialize kubeadm (done only for master)
 
@@ -122,21 +117,35 @@ Copy this code you will need it later to add worker nodes to the cluster.
 
 ### Create kubeconfig so the user can run kubectl commands
 
+Exit to ubuntu user
+
 `
 mkdir -p $HOME/.kube
 `
 
 `
-cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 `
 
 `
-chown $(id -u):$(id -g) $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
 `
 
-### Install flannel networking to allow linux nodes to communicate
+### Pass bridged IPv4 traffic to iptables` chains which is required by certain CNI networks
+
 `
-kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/v0.9.1/Documentation/kube-flannel.yml
+sysctl net.bridge.bridge-nf-call-iptables=1
+`
+
+
+### Install  networking to allow linux nodes to communicate
+
+`
+export kubever=$(kubectl version | base64 | tr -d '\n')
+`
+
+`
+kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$kubever"
 `
 
 ### Only when you want to use master node to host pods 
