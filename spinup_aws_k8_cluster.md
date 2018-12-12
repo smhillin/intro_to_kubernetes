@@ -15,7 +15,7 @@ Docker version
 ### Uninstall Current Version(if installed)
 
 `
-apt-get remove docker docker-engine docker.io
+apt-get remove docker docker-engine docker.io docker-ce
 `
 
 ### Update and upgrade the apt-get package manager
